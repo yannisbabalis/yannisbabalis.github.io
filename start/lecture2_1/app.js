@@ -9,7 +9,7 @@ class App{
 		this.camera = new THREE.PerspectiveCamera(60,window.innerWidth/window.innerHeight, 0.1, 100);
 		this.camera.position.set(0,0,4);
 
-		const ambient = new THREE.HemisphereLight(0xffffff, 0xbbbbff,0.3);
+		const ambient = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 0.3);
 		this.scene.add(ambient);
 
 	//	const light = new THREE.DirectionalLight();
@@ -46,7 +46,7 @@ class App{
     }
     
 	render( ) {   
-	//	this.mesh.rotateY(0.01);
+	this.mesh.rotateY(0.01);
         this.renderer.render(this.scene, this.camera);
     }
 }
