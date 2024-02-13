@@ -9,12 +9,12 @@ class App{
 		this.camera = new THREE.PerspectiveCamera(60,window.innerWidth/window.innerHeight, 0.1, 100);
 		this.camera.position.set(0,0,4);
 
-		const ambient = new THREE.HemisphereLight(0xffffff, 0xbbbbff,0.3);
-		this.scene.add(ambient);
+//		const ambient = new THREE.HemisphereLight(0xffffff, 0xbbbbff,0.3);
+//		this.scene.add(ambient);
 
-		const light = new THREE.DirectionalLight();
-		light.position.set(0.2,1,1);
-		this.scene.add(light);
+	//	const light = new THREE.DirectionalLight();
+	//	light.position.set(0.2,1,1);
+	//	this.scene.add(light);
 
 		this.scene = new THREE.Scene();
 		this.scene.background = new THREE.Color(0x5a7d9a);
