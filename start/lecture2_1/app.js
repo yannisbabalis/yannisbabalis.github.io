@@ -9,6 +9,13 @@ class App{
 		this.camera = new THREE.PerspectiveCamera(60,window.innerWidth/window.innerHeight, 0.1, 100);
 		this.camera.position.set(0,0,4);
 
+		const ambient = new THREE.HemisphereLight(0xffffff, 0xbbbbff,0.3);
+		this.scene.add(ambient);
+
+		const light = new THREE.DirectionalLight();
+		light.position.set(0.2,1,1);
+		this.scene.add(light);
+
 		this.scene = new THREE.Scene();
 		this.scene.background = new THREE.Color(0x5a7d9a);
 
@@ -19,6 +26,13 @@ class App{
 
 		this.renderer.setAnimationLoop(this.render.bind(this));
 
+		const geometry = new THREE.BoxBufferGeometry();
+		const material = new THREE.MeshStandardMaterial({colorQ0xff0000});
+
+		this.mesh = new THREE.Mesh(geometry, material);
+
+		this.scene.add(this.mesh);
+
         window.addEventListener('resize', this.resize.bind(this) );
 	}	
     
@@ -27,6 +41,7 @@ class App{
     }
     
 	render( ) {   
+		this.mesh.rotateY(0.01);
         this.renderer.render(this.scene, this.camera);
     }
 }
